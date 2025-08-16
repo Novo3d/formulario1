@@ -23,7 +23,7 @@ document.getElementById('customerForm').addEventListener('submit', function(even
     // Reemplaza 'http://tu-backend-en-gcp.com/api/clientes' con la URL real de tu servicio.
     // Este servicio debería ser una API REST que reciba los datos y los inserte en la base de datos.
 
-  fetch('https://api-registrar-clientes-670780568233.southamerica-west1.run.app', {
+  fetch('https://api-registrar-clientes-670780568233.southamerica-west1.run.app/registrar-cliente', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
