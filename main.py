@@ -24,7 +24,6 @@ def registrar_cliente():
         return response, 400
 
     # Configura la conexión a la base de datos a través del Cloud SQL Auth Proxy
-    # Asegúrate de reemplazar 'mi-po-backend-gcp:us-east1:bd-mysql' con tu información
     INSTANCE_CONNECTION_NAME = "mi-po-backend-gcp:southamerica-west1:bd-mysql"
     
     try:
@@ -45,9 +44,15 @@ def registrar_cliente():
     # Lógica para insertar los datos
     try:
         with conn.cursor() as cursor:
-            sql = "INSERT INTO customers (customerName, contactLastName, contactFirstName, phone, addressLine1, city, country, creditLimit) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+            # Obtener el customerNumber más alto y sumarle 1
+            cursor.execute("SELECT MAX(customerNumber) AS max_id FROM customers")
+            result = cursor.fetchone()
+            new_customer_number = result['max_id'] + 1
+            
+            sql = "INSERT INTO customers (customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1, city, country, creditLimit) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
             
             values = (
+                new_customer_number,
                 request_json.get('customerName'),
                 request_json.get('contactLastName'),
                 request_json.get('contactFirstName'),
