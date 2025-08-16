@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registro de Nuevo Cliente</h2>
+        <form id="customerForm">
+            <label for="customerName">Nombre del Cliente:</label>
+            <input type="text" id="customerName" name="customerName" required>
+
+            <label for="contactLastName">Apellido de Contacto:</label>
+            <input type="text" id="contactLastName" name="contactLastName" required>
+
+            <label for="contactFirstName">Nombre de Contacto:</label>
+            <input type="text" id="contactFirstName" name="contactFirstName" required>
+
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="addressLine1">Dirección 1:</label>
+            <input type="text" id="addressLine1" name="addressLine1" required>
+
+            <label for="city">Ciudad:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="country">País:</label>
+            <input type="text" id="country" name="country" required>
+
+            <label for="creditLimit">Límite de Crédito:</label>
+            <input type="number" id="creditLimit" name="creditLimit">
+
+            <button type="submit">Registrar Cliente</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
